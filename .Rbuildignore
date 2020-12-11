@@ -1,0 +1,5 @@
+^pkgdevt\.R$
+^rpackage-template\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^docs$
