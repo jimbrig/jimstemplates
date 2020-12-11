@@ -1,0 +1,25 @@
+Package: jimstemplates
+Title: Collection of templates
+Version: 0.0.1
+Authors@R: 
+    person(given = "Jimmy",
+           family = "Briggs",
+           role = c("aut", "cre"),
+           email = "jimbrig2011@outlook.com",
+           comment = c(ORCID = "0000-0002-7489-8787"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Imports: 
+    magrittr,
+    rlang (>= 0.1.2),
+    tibble
+Suggests: 
+    attachment,
+    devtools,
+    roxygen2,
+    testthat
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
