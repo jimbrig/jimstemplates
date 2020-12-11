@@ -65,7 +65,7 @@ get_package_deps <- function(path = getwd(),
     )
 
   if (write_yaml) {
-    yaml::write_yaml(out, "deps.yaml")
+    yaml::write_yaml(out, fs::path(path, "deps.yaml"))
     cli::cat_bullet(
       "Created file `deps.yaml`.",
       bullet = "tick",
@@ -76,7 +76,7 @@ get_package_deps <- function(path = getwd(),
   if (write_r) {
     txt <- paste0("options(repos = c(CRAN = 'https://packagemanager.rstudio.com/all/latest'))\ninstall.packages('remotes')\n",
                   paste(df$install_cmd, collapse = "\n"))
-    cat(txt, file = "deps.R")
+    cat(txt, file = fs::path(path, "deps.R"))
     cli::cat_bullet(
       "Created file `deps.R`.",
       bullet = "tick",

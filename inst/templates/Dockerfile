@@ -9,7 +9,7 @@ COPY ./deps.R /tmp/deps.R
 RUN Rscript /tmp/deps.R && rm -rf /tmp/*
 
 # Copy app into `shiny_app` directory
-COPY ./shiny_app /srv/shiny-server/shiny_app
+COPY . /srv/shiny-server/shiny_app
 
 # Update permissions (recursively) to App directory for `shiny` user
 RUN chown -R shiny:shiny /srv/shiny-server/shiny_app

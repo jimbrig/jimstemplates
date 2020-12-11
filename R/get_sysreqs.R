@@ -53,3 +53,4 @@ sysreqs_in_base <- c("gdebi-core",
                      "libcurl4-gnutls-dev",
                      "wget")
 
+# get_sysreqs("inst/testapp")

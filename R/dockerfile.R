@@ -1,11 +1,12 @@
 
 
-#' Create Dockerfile from Template
+#' Create Dockerfile from
 #'
+#' @param path defaults to getwd()
 #' @param base_image base image for `FROM` in Dockerfile
 #' @param app_config app config, defaults to `default`
 #' @param maintainer maintainer - defaults to `fullname` from [whoami::whoami()]
-#' @date date - defaults to [base::Sys.Date()]
+#' @param date date - defaults to [base::Sys.Date()]
 #' @param packages R package dependencies returned from [get_package_deps()]
 #' @param sysreqs logical - should sysreqs be included in image (via [get_sysreqs()])
 #' @param additional_r_commands any additional r commands to include in image
@@ -13,13 +14,16 @@
 #' @return
 #' @export
 #'
-#' @examples
-create_dockerfile <- function(base_image = "merlinoa/shiny_run_custom",
+#' @importFrom usethis use_template
+create_dockerfile <- function(path = getwd(),
+                              base_image = "merlinoa/shiny_run_custom",
                               app_config = "default",
                               mainainer = whoami::whoami()["fullname"],
                               date = Sys.Date(),
-                              packages = get_package_deps()[["package"]],
                               additional_r_commands = NULL) {
+
+  pkgdeps <- get_package_deps(path)
+  packages <- pkgdeps$package
 
   sysreqs <- get_sysreqs(packages)
 
@@ -32,17 +36,22 @@ create_dockerfile <- function(base_image = "merlinoa/shiny_run_custom",
 
   usethis::use_template(
     "Dockerfile",
-    save_as = "Dockerfile",
+    save_as = as.character(fs::path_rel(path = fs::path(path, "Dockerfile"))),
     data = list(base_image = base_image,
                 app_config = app_config,
                 maintianer = maintainer,
                 # date = as.character(date),
                 sysreqs = sysreqs_out,
                 additional_r_commands = additional_r_commands),
-    ignore = FALSE,
     package = "jimstemplates"
   )
 
+  out <- list(
+    package_deps = pkgdeps,
+    sysreqs = sysreqs
+  )
+
+  return(invisible(out))
 }
 
 #' Create .dockerignore from template
