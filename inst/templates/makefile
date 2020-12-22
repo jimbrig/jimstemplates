@@ -1,0 +1,38 @@
+PROJECT := {{project}}
+WORKDIR := $(CURDIR)
+
+# list below your targets and their recipies
+all:
+
+{{#wrapper}}
+### Wrap Commands ###
+# if a command is to be send to another process e.g. a container/scheduler use:
+# $(RUN1) mycommand --myflag $(RUN2)
+RUN1 = $(QRUN1) $(SRUN) $(DRUN)
+RUN2 = $(QRUN2)
+
+{{/wrapper}}
+{{#rmds}}
+### Rmd's ###
+include {{makefile_rmds}}
+
+{{/rmds}}
+{{#docker}}
+### Docker ###
+# this is a workaround for windows users
+# please set WINDOWS=TRUE and adapt WINPATH if you are a windows user
+# note the unusual way to specify the path
+WINPATH = {{winpath}}
+include {{makefile_docker}}
+
+{{/docker}}
+{{#singularity}}
+### Singularity ###
+include {{makefile_singularity}}
+
+{{/singularity}}
+{{#inspect}}
+# use `make print-anyvariable` to inspect the value of any variable
+print-%: ; @echo $* = $($*)
+
+{{/inspect}}

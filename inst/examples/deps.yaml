@@ -1,0 +1,132 @@
+remotes:
+  Package: remotes
+  Repository: CRAN
+  Version: 2.2.0
+htmltools:
+  Package: htmltools
+  Repository: CRAN
+  Version: 0.5.0
+fs:
+  Package: fs
+  Repository: CRAN
+  Version: 1.5.0
+knitr:
+  Package: knitr
+  Repository: CRAN
+  Version: '1.30'
+shiny:
+  Package: shiny
+  Repository: CRAN
+  Version: 1.5.0
+shinydashboard:
+  Package: shinydashboard
+  Repository: CRAN
+  Version: 0.7.1
+shinyjs:
+  Package: shinyjs
+  Repository: CRAN
+  Version: 2.0.0
+shinyWidgets:
+  Package: shinyWidgets
+  Repository: CRAN
+  Version: 0.5.4
+purrr:
+  Package: purrr
+  Repository: CRAN
+  Version: 0.3.4
+lubridate:
+  Package: lubridate
+  Repository: CRAN
+  Version: 1.7.9.2
+tibble:
+  Package: tibble
+  Repository: CRAN
+  Version: 3.0.4
+dplyr:
+  Package: dplyr
+  Repository: CRAN
+  Version: 1.0.2
+DT:
+  Package: DT
+  GithubUsername: rstudio
+  GithubRepo: DT
+  GithubRef: HEAD
+  GithubSHA1: c8354b7a8a3ae56fa01295af98d915920573a0f8
+config:
+  Package: config
+  Repository: CRAN
+  Version: '0.3'
+polished:
+  Package: polished
+  GithubUsername: tychobra
+  GithubRepo: polished
+  GithubRef: HEAD
+  GithubSHA1: 2e550ceedfe69701cc1f4bf9a5dca7533ac5d86b
+cli:
+  Package: cli
+  Repository: CRAN
+  Version: 2.2.0
+rlang:
+  Package: rlang
+  Repository: CRAN
+  Version: 0.4.9
+yaml:
+  Package: yaml
+  Repository: CRAN
+  Version: 2.2.1
+formatR:
+  Package: formatR
+  Repository: CRAN
+  Version: '1.7'
+usethis:
+  Package: usethis
+  Repository: CRAN
+  Version: 1.6.3
+glue:
+  Package: glue
+  Repository: CRAN
+  Version: 1.4.2
+stringr:
+  Package: stringr
+  Repository: CRAN
+  Version: 1.4.0
+xfun:
+  Package: xfun
+  Repository: CRAN
+  Version: '0.19'
+whoami:
+  Package: whoami
+  Repository: CRAN
+  Version: 1.3.0
+devtools:
+  Package: devtools
+  Repository: CRAN
+  Version: 2.3.2
+pkgdown:
+  Package: pkgdown
+  Repository: CRAN
+  Version: 1.6.1
+jsonlite:
+  Package: jsonlite
+  Repository: CRAN
+  Version: 1.7.2
+testthat:
+  Package: testthat
+  Repository: CRAN
+  Version: 3.0.0
+withr:
+  Package: withr
+  Repository: CRAN
+  Version: 2.3.0
+git2r:
+  Package: git2r
+  Repository: CRAN
+  Version: 0.27.1
+curl:
+  Package: curl
+  Repository: CRAN
+  Version: '4.3'
+stringi:
+  Package: stringi
+  Repository: CRAN
+  Version: 1.5.3
