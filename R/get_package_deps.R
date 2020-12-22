@@ -33,19 +33,26 @@ get_package_deps <- function(path = getwd(),
 
   # loop through files gathering packages using `parse_packages`
   pkg_names_init <- lapply(files, purrr::safely(parse_packages))
+
+  browser()
+
   pkg_names <- purrr::map_depth(pkg_names_init, 1, purrr::pluck, "result") %>%
     purrr::map(function(x) {
       if (length(x) == 0) return(NULL) else return(x)
     }) %>%
     purrr::flatten_chr() %>%
-    unique()
+    unique() %>%
+    purrr::map(purrr::possibly(packageDescription, otherwise = NA_character_)) %>%
+    purrr::map_depth(1, purrr::pluck, "Package") %>%
+    purrr::compact() %>%
+    purrr::flatten_chr()
 
   if (length(pkg_names) == 0) {
     cli::cli_alert_warning("warning: no packages found in specified directory")
     return(invisible(NULL))
   }
 
-  hold <- lapply(pkg_names, purrr::safely(get_package_details)) %>%
+  hold <- lapply(pkg_names, purrr::safely(get_package_details, quiet = FALSE)) %>%
     rlang::set_names(pkg_names)
 
   out <- purrr::map_depth(hold, 1, purrr::pluck, "result") %>%
